@@ -1,0 +1,38 @@
+<ng-template #productsContent let-offcanvas>
+	<div class="offcanvas-header">
+        <h1>Your order</h1>
+		<button type="button" class="btn-close" style="font-size: 1.5rem;" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+	</div>
+	<div class="offcanvas-body d-flex flex-column justify-content-between">
+		<div class="row">
+            <div class="col" *ngIf="productsAdded.length ===0; else showProducts">
+                No products added yet!
+            </div>
+            <ng-template #showProducts>
+                <div class="bg-light mb-2 pt-2" *ngFor="let product of productsAdded; let i = index">
+                    <p>{{product.name}}, {{product.price}} €</p>
+                    <p></p>
+                    <button class="btn text-danger" (click)="removeProduct(i)">
+                        <i class="bi bi-x-lg"></i>
+                        Remove product
+                    </button>
+                </div>
+            </ng-template>
+            
+        </div>
+        <form>
+            <div class="form-row">
+                <div class="col mb-4 d-flex gap-1 align-items-center">
+                    <label for="price" class="form-label">Total price:</label>
+                    <input type="text" id="price" class="form-control" style="width: 20%;" [value]="totalPrice | currency:'EUR'" disabled/>
+                </div>
+            </div>
+            
+            <a class="btn btn-light" routerLink="/finalize-order">Finalize order</a>
+        </form>
+	</div>
+</ng-template>
+
+<button class="btn btn-light position-fixed custom-pos" (click)="open(productsContent)">
+    <i class="bi bi-basket3-fill" style="font-size: 2.5rem; color: rgb(255 204 82);"></i>
+</button>

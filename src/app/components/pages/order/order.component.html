@@ -1,0 +1,53 @@
+<navbar></navbar>
+<div class="container-fluid">
+    <div class="row text-center align-items-center products-title">
+        <h1 class="title">ORDER NOW</h1>
+    </div>
+    <div class="row">
+        <nav class="navbar navbar-expand-sm products-nav">
+            <div class="container-fluid d-flex flex-wrap justify-content-center gap-5">
+                <button class="btn btn-lg btn-product" (click)="selectProductType('B')">Burgers</button>
+                <button class="btn btn-lg btn-product" (click)="selectProductType('D')">Drinks</button>
+            </div>
+        </nav>
+    </div>
+    <div class="row products-row">
+        <div class="col-12 d-flex flex-column align-items-center mt-5" *ngIf="selectedProduct">
+            <div class="row bg-light rounded text-center p-4 mb-3 product-item-row" style="width: 70%;"
+                *ngFor="let product of productsList">
+                <div class="col">
+                    <img src='{{product.image}}' height="100" />
+                </div>
+                <div class="col-6 d-flex flex-column justify-content-around">
+                    <h5 class=" fs-1">{{product.name}}</h5>
+                    <p>{{product.description}}</p>
+                </div>
+                <div class="col d-flex flex-wrap flex-column align-items-center justify-content-center">
+                    <button class="btn btn-success" style="width: 50%;" (click)="addProductToCart(product)">Add product</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col d-flex flex-wrap justify-content-center m-4 gap-5" *ngIf="!selectedProduct">
+            <button class="btn p-0 btn-card" style="height: fit-content;" (click)="selectProductType('B')">
+                <div class="card card-product">
+                    <img src="/assets/img/burger-detail.jpg" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-white">Burgers</h5>
+                    </div>
+                </div>
+            </button>
+            <button class="btn p-0 btn-card" style="height: fit-content;" (click)="selectProductType('D')">
+                <div class="card card-product">
+                    <img src="/assets/img/drinks-detail.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Drinks</h5>
+                    </div>
+                </div>
+            </button>
+        </div>
+
+    </div>
+    <order-offcanvas></order-offcanvas>
+</div>
+<footer-component></footer-component>

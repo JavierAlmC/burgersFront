@@ -1,0 +1,31 @@
+@keyframes scaleUp {
+    0% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+:host{
+    background: url('/assets/img/burgerbgblurred.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    display: block;
+    margin: 0;
+}
+
+.form-control-text{
+    width: 50%;
+}
+
+.initial-div{
+    animation: scaleUp 1s ease-in-out;
+    margin-top: 10em !important;
+    padding: 0 !important;
+    height: calc(72vh + 3px);
+}

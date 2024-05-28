@@ -1,0 +1,56 @@
+<navbar></navbar>
+<div class="container justify-content-center initial-div" style="max-width: 50%;">
+    <div class="card border-0 shadow my-5 ">
+        <div class="card-body p-5">
+            <form class="login-form bg-white p-5" (ngSubmit)="register()">
+                <div class="form-outline mb-4" data-mdb-input-init>
+                    <input type="text" [(ngModel)]="credentials.username" name="username" autocomplete="username"
+                        id="inputText" class="form-control form-control-text" />
+                    <label class="form-label" for="inputText">Nickname</label>
+                    <div *ngIf="errorMessages['username']" class="text-danger">
+                        <p *ngFor="let error of errorMessages['username']">{{error}}</p>
+                    </div>
+                </div>
+
+                <div class="form-outline mb-4" data-mdb-input-init>
+                    <input type="email" [(ngModel)]="credentials.email" name="email" autocomplete="email"
+                        id="inputEmail" class="form-control form-control-email" />
+                    <label class="form-label" for="inputEmail">Email address</label>
+                    <div *ngIf="errorMessages['email']" class="text-danger">
+                        <p *ngFor="let error of errorMessages['email']">{{error}}</p>
+                    </div>
+                </div>
+
+                <div class="form-outline mb-4 d-flex align-items-center gap-3" data-mdb-input-init>
+                    <div>
+                        <input type="password" [(ngModel)]="credentials.password" name="password"
+                            autocomplete="new-password" id="inputPassword" class="form-control" />
+                        <label class="form-label" for="inputPassword">Password</label>
+                        <div *ngIf="errorMessages['password']" class="text-danger">
+                            <p *ngFor="let error of errorMessages['password']">{{error}}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="password" [(ngModel)]="credentials.password2" name="password2"
+                            autocomplete="new-password" id="inputPassword2" class="form-control" />
+                        <label class="form-label" for="inputPassword2">Repeat Password</label>
+                        <div *ngIf="errorMessages['password2']" class="text-danger">
+                            <p *ngFor="let error of errorMessages['password2']">{{error}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="errorMessages['non_field_errors']" class="text-danger">
+                    <p *ngFor="let error of errorMessages['non_field_errors']">{{error}}</p>
+                </div>
+                <div class="row mb-4">
+                    <div class="col text-center">
+                        <p>Already with an account? <a routerLink="/login">Sign in</a></p>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-lg btn-success btn-block" data-mdb-ripple-init>Sign up</button>
+            </form>
+        </div>
+    </div>
+</div>
+<footer-component></footer-component>

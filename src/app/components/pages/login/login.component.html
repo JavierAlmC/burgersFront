@@ -1,0 +1,40 @@
+<navbar></navbar>
+
+<div class="container justify-content-center initial-div" style="max-width: 50%;">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+      <form class="login-form bg-white d-flex flex-column align-items-center p-0" (ngSubmit)="login()">
+
+        <div class="form-outline mb-4">
+          <input type="text" [(ngModel)]="credentials.username" name="username" id="inputUsername"
+            autocomplete="username" class="form-control" placeholder="Nickname is required" required="" />
+          <label class="form-label" for="inputUsername">Nickname</label>
+          <div *ngIf="errorMessages['email']" class="text-danger">
+            <p *ngFor="let error of errorMessages['email']">{{error}}</p>
+          </div>
+        </div>
+
+        <div class="form-outline mb-4">
+          <input type="password" [(ngModel)]="credentials.password" name="password" autocomplete="current-password"
+            id="inputPassword" class="form-control" placeholder="Password is required" required="" />
+          <label class="form-label" for="inputPassword">Password</label>
+          <div *ngIf="errorMessages['password']" class="text-danger">
+            <p *ngFor="let error of errorMessages['password']">{{error}}</p>
+          </div>
+        </div>
+        <div *ngIf="errorMessages['non_field_errors']" class="text-danger">
+          <p *ngFor="let error of errorMessages['non_field_errors']">{{error}}</p>
+        </div>
+        <div class="row mb-4">
+          <button type="submit" class="btn btn-lg btn-success btn-block" data-mdb-ripple-init>Sign in</button>
+        </div>
+        <div class="row mb-4">
+          <div class="col text-center">
+            <p>Whithout an account? <a routerLink="/register">Create one</a></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<footer-component></footer-component>

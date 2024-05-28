@@ -1,0 +1,42 @@
+<navbar></navbar>
+
+<div class="container justify-content-center initial-div" style="max-width: 80%;">
+    <div class="card border-0 shadow my-5">
+        <div class="card-body p-5">
+            <form class="bg-white p-0" (ngSubmit)="finalizeOrder()">
+                <div class="form-row mb-4">
+                    <select class="form-select" name="orderType" [(ngModel)]="order.orderType">
+                        <option value="D">Delivery</option>
+                        <option value="P">Pickup</option>
+                    </select>
+                    <p>Delivery or Pick Up order?</p>
+                    <select class="form-select" name="orderDayHour" [(ngModel)]="order.orderDayHour">
+                        <option *ngFor="let key of hoursRange" [value]="key">{{ getOrderValue(key) }}</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <input type="text" name="adress" id="inputAdress" autocomplete="address-line1"
+                        class="form-control" [(ngModel)]="order.adress"/>
+                    <label class="form-label" for="inputAdress">Address</label>
+                    <div class="text-danger">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <textarea name="info" id="addInfo" class="form-control" rows="3" [(ngModel)]="order.info"></textarea>
+                    <label class="form-label" for="addInfo">Additional info</label>
+                    <div class="text-danger">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="text-danger">
+                    <p></p>
+                </div>
+                <div class="form-row">
+                    <button type="submit" class="btn btn-lg btn-success" data-mdb-ripple-init>Order now!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer-component></footer-component>

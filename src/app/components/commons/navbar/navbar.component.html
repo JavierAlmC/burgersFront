@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-sm" style="background-color: rgb(29 105 96);">
+  <div class="container-fluid">
+    <div>
+      <a class="navbar-brand" style="margin: 0;" routerLink="">
+        <img src="/assets/img/bigkahunalogo.png" alt="" class="logo-img">
+      </a>
+      <offcanvas></offcanvas>
+    </div>
+    <div class="d-flex gap-1">
+
+      <ng-container *ngIf="isLoggedIn() | async; else showLoginButton">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <span class="nav-text text-white">
+            Welcome back, {{getUserName()}}!
+          </span>
+
+
+          <div class="btn-group" ngbDropdown display="dynamic" placement="bottom-end">
+            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+              aria-expanded="false" ngbDropdownToggle>
+              <i class="bi bi-person-circle"></i>
+            </button>
+            <ul class="dropdown-menu" ngbDropdownMenu>
+              <li><a class="dropdown-item" routerLink="">My Orders</a></li>
+              <li><a class="dropdown-item" (click)="logout($event)">Logout</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </ng-container>
+      <ng-template #showLoginButton>
+        <a class="btn btn-success" routerLink="/login">Log in</a>
+      </ng-template>
+    </div>
+
+  </div>
+</nav>

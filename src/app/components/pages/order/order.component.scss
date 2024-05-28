@@ -1,0 +1,51 @@
+@keyframes smooth-appear{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.products-nav{
+    padding-left: 30%;
+    padding-right: 30%;
+    background-color: #1D6960;
+}
+.products-title{
+    height: 20vh;
+    background-color: #FFCC52;
+}
+
+.title{
+    font-size: max(6vw,40px);
+    color: white;
+    font-weight: bold;
+}
+
+.products-row{
+    min-height: 50vh;
+    margin-top: 0 !important;
+    background: url('/assets/img/burgerbg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.product-item-row{
+    animation: smooth-appear 1s ease-in-out;
+}
+.card-product{
+    width: max(19vw,250px);
+    border: none;
+    background-color: #67B346;
+}
+
+.btn-product{
+    color: white;
+    &:hover{
+        color: #FFCC52;
+    }
+}
+
+.btn-card:hover{
+    border: 1px solid white;
+}

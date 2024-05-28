@@ -1,0 +1,49 @@
+<navbar></navbar>
+<div class="container-fluid">
+    <div class="row text-center align-items-center products-title">
+        <h1 class="title">OUR PRODUCTS</h1>
+    </div>
+    <div class="row">
+        <nav class="navbar navbar-expand-sm products-nav">
+            <div class="container-fluid d-flex flex-wrap justify-content-center gap-5">
+                <button class="btn btn-lg btn-product" (click)="selectProductType('B')">Burgers</button>
+                <button class="btn btn-lg btn-product" (click)="selectProductType('D')">Drinks</button>
+            </div>
+        </nav>
+    </div>
+    <div class="row mt-4 products-row">
+        <div class="col d-flex flex-wrap justify-content-center m-4 gap-5" *ngIf="selectedProduct">
+            <div class="card card-product" *ngFor="let product of products">
+                <img src='{{product.image}}' class="card-img-top" alt="..." />
+                <div class="card-body text-center text-white">
+                    <h5 class="card-title text-white fs-1">{{product.name}}</h5>
+                    <hr/>
+                    <p>{{product.description}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col d-flex flex-wrap justify-content-center m-4 gap-5" *ngIf="!selectedProduct">
+            <button class="btn p-0 btn-card" style="height: fit-content;" (click)="selectProductType('B')">
+                <div class="card card-product">
+                    <img src="/assets/img/burger-detail.jpg" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-white">Burgers</h5>
+                    </div>
+                </div>
+            </button>
+            <button class="btn p-0 btn-card" style="height: fit-content;" (click)="selectProductType('D')">
+                <div class="card card-product">
+                    <img src="/assets/img/drinks-detail.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Drinks</h5>
+                    </div>
+                </div>
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<footer-component></footer-component>

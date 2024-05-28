@@ -1,0 +1,9 @@
+hr {
+    color: white;
+}
+.nav-link-yellow{
+    color: rgb(255 204 82);
+    &:hover {
+        color: white;
+      }
+}
